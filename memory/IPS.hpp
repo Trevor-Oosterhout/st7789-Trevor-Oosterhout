@@ -155,7 +155,10 @@ public:
       transaction.write( static_cast< uint8_t >( commands::RAMWR ) );
       dc.write( 1 ); dc.flush();
       for( int i = 0; i < 240 * 240 * 8; ++i ){
+         transaction.write( buffer[ i ] )
          transaction.write( buffer[ i ] );
+         transaction.write( buffer[ i ] );
+;
 
       }
    }
